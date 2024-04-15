@@ -1,0 +1,531 @@
+
+
+
+/* .................. */
+/* default setup */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    color: rgb(71, 88, 214);
+    background-color: #ffffff;
+    text-rendering: optimizeLegibility;
+    /* mac dinh la 16px */
+}
+body{
+    overflow-x: hidden;
+}
+/* ............... */
+/* reusable component */
+.btn{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #e67e22;
+    padding: 15px 30px;
+    margin: 0 5px;
+    border-radius: 20px;
+    width: 190px;
+    display: inline-block;
+    /* display: inline-block cho phép chỉnh sửa height & width trên cùng 1 hàng */
+    text-align: center;
+    transition: all .2s;
+    /* transition: hoặc background-color .1s,color .1s */
+    
+    
+}
+.btn:hover,.btn:active{
+    background-color: #d35400;
+    color: red;
+    
+}
+.clearfix::after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+    /* position: relative; */
+}
+h1.h2,h3{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+h2{
+    color: #e67e22;
+    font-size: 200%;
+    font-weight: 700;
+    text-align: center;
+}
+h1{
+    /* text-transform: uppercase; */
+    font-size: 300%;
+    font-weight: 400;
+    /* letter-spacing: 10px; */
+    word-break: 5px; 
+     color: #ffffff;
+    line-height: 135%;
+    margin-bottom: 50px;
+}
+h3{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #03045e;
+    color: white;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    margin-bottom: 15px;
+}
+h2::after{
+/* chỉnh sửa phần nằm liền sau h2 */
+content: " ";
+display: block;
+width: 150px;
+height: 3px;
+background-color: rgba(230, 126, 34, 0.5);
+margin: 0 auto;
+margin-top: 5px;
+/* */
+}
+.p-long{
+    text-align: center;
+    color: #265077;
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 70%;
+    margin-left: 15%;
+    line-height: 140%;
+
+}
+section{
+    padding: 50px;
+}
+.small-icon{
+    color: #5d5fb5;
+    font-size: 130%;
+    margin-right: 10px;
+}
+/* ........................ */
+/* .........HEADER......... */
+/* ........................ */
+header {
+    background-image: linear-gradient(/*to right top dãi màu theo góc quay */ 135deg 
+    ,rgba(3,4,94,0.8),rgba(179,231,241,0.8)55% /* 55% diện tích màu chiếm*/) ,url(../img/background4.jpeg);
+    background-size: contain;
+    background-position: center;
+    height: 100vh; /* chiều cao chiếm trong màn hình % */
+    background-attachment: fixed;
+
+}
+
+/* những thẻ có sẳn k cần dùng "."
+    chỉ dùng dấu "." khi đó là các thuộc tính
+*/
+/* di chuột qua element goi la hover */
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 3px solid rgb(193, 60, 60);
+}
+.main-nav {
+    float: right;
+    list-style: none;
+    /* list-style: none; dùng để tắt hiển thị mặc định là dấu chấm tròn
+    , square là hình vuông */
+    margin-top: 55px;
+    margin-right: 50px;
+}
+.main-nav li {
+    display: inline-block;
+    /* display: inline-block; hiển thị các element trên cùng một hàng */
+    margin-right: 30px;
+    
+}
+.main-nav li a{
+    text-decoration: none;
+    color: white;
+    font-size: 110%;
+    /* text-decoration: none; dùng để tắt kẻ gạch chân  */
+    font-weight: 700;
+    transition: border-bottom 0.5s;
+    padding: 3px 0;
+}
+
+.logo {
+    width: 350px;
+    float: left;
+    margin-left: 70px;
+    margin-top: -50px;
+    margin-bottom: -100px;
+
+}
+
+.heading-main-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%,-55%);
+    /* tranlate(tọa độ nội dung x,tọa độ nd y) */
+    width: 1140px;
+}
+/*............ sticky.......... */
+.sticky{
+    background-color: rgba(2,33,64,.9);
+    position: fixed;
+    z-index: 900;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* height: 70px; */
+    padding-bottom: 10px; /* padding nghĩa là lề cách nội dung bao nhiêu tăng khoảng cách cho lề */
+    
+   
+}
+.sticky .logo{
+    width: 250px;
+    margin-top: -40px;
+    margin-bottom: -70px;
+}
+.sticky .main-nav{
+    margin-top: 30px;
+}
+/* ...................... */
+/* ........Mobile navigation icon */
+.mobile-nav-icon{
+    font-size:150%;
+    color: #6b95bd;
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    display: none;
+    cursor: pointer;
+}
+.sticky .mobile-nav-icon{
+    top: 30px;
+}
+
+/* ........................... */
+/* ........ABOUT SECTION........ */
+/* ............................... */
+/* .about-picture { 
+    width: 25%;
+    float: left;
+    position: relative;
+} */
+/* .about-picture img{
+    width: 285px;
+} */
+.about-picture img{
+    width: 90%;
+    /* background-color: red; */
+    border-radius: 20px;
+    border: 4px solid rgb(197, 250, 250);
+    box-shadow: 0px 7px 15px 5px #265077;
+    /* box-shadow: +phai(-trai) +duoi(-tren) 10px(mo) #265077; */
+    /* filter: brightness(55%) blur(2px); */
+    /* blur độ mờ */
+    position: relative;
+    transition: all .5s;
+    margin-top: 50px;
+} 
+.picture-title{
+    position:absolute;
+    /* position dua vao position cha */
+    top: 50%; 
+    /* top left chỉnh vị trí */
+    left: 50%;
+    color: #c2e1fd;
+    transform: translate(-55%,30px);
+    opacity: 0;
+    transition: all .5s;
+}
+.about-table{
+    margin-top: 0px;
+}
+.about-picture{
+    position: relative;
+    margin-top: 0px;
+}
+.about-picture:hover img ,
+.about-picture:active img{
+    filter: brightness(55%) blur(2px);
+}
+.about-picture:hover .picture-title,
+.about-picture:active .picture-title
+/* 
+khi hover vào about-picture thì tương tác đến picture-title
+tương tự active
+*/
+{
+    transform: translate(-60%,-0%);
+
+    opacity: 1;
+ 
+}
+/* .............................. */
+/* ........PRODUCT-SECTION........... */
+/* ....................................... */
+.products-section{
+background-color: #f4f4f4;
+}
+.products-section h2{
+    margin-bottom: 60px;
+}
+.product-box{
+  
+    /* width: 90%;  */
+    height: 350px;
+    background-color: #eeefff;
+    box-shadow: 3px 5px 10px #e0e0e0;
+   /* position: relative; chỉnh lại cho khớp ,hơi khác youtube  */
+}
+.product-price{
+    font-size: 250%;
+    font-weight: 300;
+    color: #03045e;
+    text-align: center;
+
+}
+
+.product-price span{
+     font-size: 80%; 
+     /*  80% cua 250% nay` */
+    /* font-weight: 200;  */
+}
+.product-box ul li{
+    /* mấy thẻ có sẳn k cần "." */
+    /* text-align: center; nó sẽ kh đều xấu */
+    margin-left: 28%;
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* list-style:none để tắt chế độ hiển thị dấu chấm mỗi dòng */
+
+}
+.product-box .btn{
+margin-left: 28%;
+}
+/* ...................................... */
+/* .....TESTIMONIALS SECTION................. */
+/* .............................................. */
+.testimonials-section{
+    background-image:linear-gradient(/*to right top dãi màu theo góc quay */ 135deg 
+    ,rgba(3,4,94,0.8),rgba(179,231,241,0.8)55% /* 55% diện tích màu chiếm*/) ,
+    
+    url('../img/background2.jpeg');
+
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    /*  */
+}
+.testimonials-section h2{
+    margin-bottom: 70px;
+}
+blockquote {
+    width: 92%;
+    position: relative;
+    font-style: italic;
+    line-height: 140%;
+    color: white;
+}
+cite img{
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #0b0d94;
+    vertical-align: middle;
+    /* vertical-align canh lề theo phương đứng */
+    margin-right: 10px;
+
+
+}
+cite{
+    display: block;
+    /* xem nó như 1 block để k đủ thì sẽ rớt dòng mới */
+    color: #0b0d94;
+margin-top: 25px;
+
+}
+blockquote::before{
+    /* glyss css trick tạo cú pháp tùy thích */
+   content: "\201C";
+   display: block;
+   font-size: 400%;
+   position: absolute;
+   top: -10px;
+   left: -10px;
+}
+/* ......................... */
+/* .........SPONSOR SECTION........ */
+/* ...................................... */
+.sponsors-section{
+background-color: #f4f4f4;
+}
+.sponsors-section
+ h2 {
+    margin-bottom: 50px;
+    /* text-align: center; */
+
+ }
+ .sponsors-showcase{
+    margin-left: 9%;
+ }
+ .sponsors-showcase li{
+    list-style: none;
+    float: left;
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+ }
+ .logo-sponsor{
+    /* height: ; */
+    width: 140px;
+    cursor: pointer;
+    transition: all .3s;
+    /* 0.3s */
+    /* cursor đưa chuột vào hiển thị con trỏ bàn tay */
+ }
+ .sponsors-showcase li .logo-sponsor:hover,
+ .sponsors-showcase li .logo-sponsor:active
+ {
+    transform: scale(1.2);
+    /* tang kich thuoc */
+ }
+ figcaption{
+    color: #03045e;
+    font-weight: 900;
+    font-size: 120%;
+    cursor: pointer;
+    /* cursor đưa chuột vào hiển thị con trỏ bàn tay */
+ }
+ /* ........................ */
+ /* ..........CONTACT FORM.......... */
+
+ /* .................... */
+
+ /* ...........FOOTER */
+ /* ................................ */
+ .contact-section{
+    background-image: linear-gradient(/*to right top dãi màu theo góc quay */ 135deg 
+    ,rgba(3,4,94,0.8),rgba(179,231,241,0.8)55% /* 55% diện tích màu chiếm*/) ,url('../img/background5.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+ footer
+ {
+
+    text-align: center;
+
+        color: white;
+        padding: 20px;
+    background-color: #494545;
+ }
+ .information{
+    color:white;
+line-height: 200%;
+list-style:none;
+margin-top: 70px;
+word-spacing: 1px;
+font-size: 95%;
+ }
+ .information .small-icon
+ {
+    color: rgb(22, 99, 194)
+    /* )146, 148); */
+ }
+ .information .small-icon:hover,
+ .information .small-icon:active{
+
+    transform: scale(1.3);
+ }
+ .social-icons{
+    margin-top: 50px;
+    list-style: none;
+ }
+ .social-icons li {
+    display: inline-block;
+    font-size: 250%;
+    margin-left: 20px;
+    color: white;
+ }
+    .social-icons li i{
+        transition: all .3s;
+        cursor: pointer;
+    }
+ 
+ .social-icons li i:hover,
+
+ .social-icons li i:active{
+    transform: scale(1.3);
+    color: #e67e22;
+ }
+ /* ....................... */
+
+ /* ........Form.......... */
+ #form{
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-right: 30%;
+    width: 68%;
+    padding: 20px;
+    margin-bottom: 30px;
+ }
+#form tr{
+    margin-bottom: px;
+}
+ label
+ {
+    color: white;
+    font-size: 150%;
+ }
+ input,textarea{
+    outline: none;
+    margin: 20px;
+    padding: 10px;
+    margin-left: -50px;
+    background-color: rgba(48,47,47,0.4);
+    border: 1px solid rgba(70,68,68,0.7);
+    cursor: pointer;
+border-radius: 5px;
+
+ }
+ textarea {
+    resize: none;
+    height: 100px;
+ }
+ input{
+    height: 50px;
+ }
+ #form tr:last-child{
+    text-align: center;
+    
+ }
+ input[type=text],input[type=email],textarea{
+    width: 80%;
+    font-size: 100%;
+    transition: all .3s;
+    margin-left: 30px;
+    margin-right: 20px;
+    
+ }
+ input[type=text]:focus,input[type=email]:focus,textarea:focus{
+    color: white;
+    background-color: rgba(48,47,47,0.8);
+ }
+
+
+ 
+ input[type=submit]{
+    font-weight: 700;
+    font-size: 130%;
+    border-radius: 5px;
+    width: 60%;
+ }
